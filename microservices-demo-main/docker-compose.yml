@@ -1,0 +1,9 @@
+--- 
+version: "3"
+services: 
+  books: 
+    build: ./books
+  customers: 
+    build: ./customers
+  orders: 
+    build: ./orders
