@@ -41,10 +41,10 @@ app.get('/orders', (req, res) => {
 app.get('/order/:id', (req, res) => {
   Order.findById(req.params.id).then((order) => {
     if (order) {
-      axios.get(`https://loclahost:5000/${order.customerID}`).then((response) => {
+      axios.get(`https://loclahost:8082/${order.customerID}`).then((response) => {
         let orderObject = { CustomerName: response.data.name, BookTitle: '' }
         
-        axios.get(`https://localhost:3000/${order.bookID}`).then((response) => {
+        axios.get(`https://localhost:8080/${order.bookID}`).then((response) => {
           orderObject.BookTitle = response.data.title 
           res.json(orderObject);
         })
